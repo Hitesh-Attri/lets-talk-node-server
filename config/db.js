@@ -6,6 +6,7 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       // useFindAndModify: true,
+      dbName: "Chat-App-Lets-Talk",
     });
 
     console.log(`Mongo Connected: ${conn.connection.host}`);
