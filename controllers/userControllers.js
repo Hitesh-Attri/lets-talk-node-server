@@ -4,8 +4,7 @@ const User = require("../models/userModel");
 const { generateToken } = require("../config/generateToken");
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, pic } = req.body;
-  // console.log(req.body);
+  const { name, email, password, picURL } = req.body;
 
   if (!name || !email || !password) {
     res.status(400);
@@ -13,7 +12,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
   const userExists = await User.findOne({ email });
   if (userExists) {
-    res.status(400);
+    res.status(409);
     throw new Error("User already exists");
   }
 
@@ -23,7 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password: hashedPassword,
-    pic,
+    pic: picURL,
   });
 
   if (user) {

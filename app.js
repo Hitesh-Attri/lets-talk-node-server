@@ -1,5 +1,4 @@
 const express = require("express");
-const chats = require("./data/data");
 const dotenv = require("dotenv");
 const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 
@@ -13,6 +12,7 @@ const cors = require("cors");
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
+    credentials: true,
   })
 );
 
