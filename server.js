@@ -13,7 +13,11 @@ const server = app.listen(PORT, (err) => {
 const io = require("socket.io")(server, {
   pingTimout: 60000,
   cors: {
-    origin: process.env.CLIENT_URL,
+    origin: [
+      process.env.CLIENT_URL,
+      "https://d309-103-167-115-89.ngrok-free.app",
+      "https://lets-talk-ab.netlify.app",
+    ],
   },
 });
 app.set("io", io);

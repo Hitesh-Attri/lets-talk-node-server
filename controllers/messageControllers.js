@@ -99,10 +99,11 @@ const scheduleMessage = asyncHandler(async (req, res) => {
           latestMessage: message,
         }
       );
+      console.log("scheduled message sent");
     });
 
-    // jobs.push(job);
-    // console.log(jobs, "<--jobs");
+    jobs.push(job);
+    console.log(jobs, "<--jobs");
   }
 
   res.json({ msg: "Message scheduled" });

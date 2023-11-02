@@ -11,7 +11,11 @@ app.use(express.json());
 const cors = require("cors");
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: [
+      process.env.CLIENT_URL,
+      "https://d309-103-167-115-89.ngrok-free.app",
+      "https://lets-talk-ab.netlify.app",
+    ],
     credentials: true,
   })
 );
